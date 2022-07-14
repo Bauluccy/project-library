@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pages">
+
+        <ImageView
+            android:id="@+id/idImg"
+            android:layout_width="130dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/idTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/idImg"
+            android:hint="Titulo"
+            android:padding="3dp"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/idDist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idTitulo"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@id/idImg"
+            android:hint="Distribuidora"
+            android:padding="3dp"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/idPaginas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idDist"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@id/idImg"
+            android:hint="Paginas"
+            android:padding="3dp"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/idData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idPaginas"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:hint="Data"
+            android:padding="3dp"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
