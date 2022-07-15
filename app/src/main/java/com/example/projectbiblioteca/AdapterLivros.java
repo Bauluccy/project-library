@@ -39,7 +39,7 @@ public class AdapterLivros extends RecyclerView.Adapter<AdapterLivros.ViewHolder
         Livros livros = listaLivros.get(posicao);
         holder.titulo.setText(livros.getTitulo());
         holder.distribuidora.setText(livros.getDistribuidora());
-        holder.qntPag.setText("No of Pages : " + livros.getQntPages());
+        holder.qntPag.setText("Sem páginas : " + livros.getQntPages());
         holder.data.setText(livros.getDataDistrib());
 
         Picasso.get().load(livros.getThumb()).into(holder.imagem);
@@ -48,17 +48,17 @@ public class AdapterLivros extends RecyclerView.Adapter<AdapterLivros.ViewHolder
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, Detalhes.class);
-                i.putExtra("Titulo", livros.getTitulo());
-                i.putExtra("Sub-Titulo", livros.getSub());
-                i.putExtra("Autores", livros.getAutores());
-                i.putExtra("Distribuidora", livros.getDistribuidora());
-                i.putExtra("Data Publicada", livros.getDataDistrib());
-                i.putExtra("Descricao", livros.getDescricao());
-                i.putExtra("Paginas", livros.getQntPages());
-                i.putExtra("Capa", livros.getThumb());
-                i.putExtra("Pre Visualizar", livros.getLinkPre());
-                i.putExtra("Informacoes",livros.getInfoLink());
-                i.putExtra("Comprar", livros.getLinkCompra());
+                i.putExtra("title", livros.getTitulo());
+                i.putExtra("subtitle", livros.getSub());
+                i.putExtra("authors", livros.getAutores());
+                i.putExtra("publisher", livros.getDistribuidora());
+                i.putExtra("publishedDate", livros.getDataDistrib());
+                i.putExtra("description", livros.getDescricao());
+                i.putExtra("pageCount", livros.getQntPages());
+                i.putExtra("thumbnail", livros.getThumb());
+                i.putExtra("previewLink", livros.getLinkPre());
+                i.putExtra("infoLink",livros.getInfoLink());
+                i.putExtra("buyLink", livros.getLinkCompra());
 
                 context.startActivity(i);
             }

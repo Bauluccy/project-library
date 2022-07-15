@@ -51,16 +51,16 @@ public class Detalhes extends AppCompatActivity {
         comprarButton = findViewById(R.id.idComprarButton);
         imgLivro = findViewById(R.id.idImgLivro);
 
-        titulo = getIntent().getStringExtra("Titulo");
-        sub = getIntent().getStringExtra("Sub-Titulo");
-        distrib = getIntent().getStringExtra("Distribuidora");
-        dataDist = getIntent().getStringExtra("Data Publicada");
-        descricao = getIntent().getStringExtra("Descricao");
-        qntPages = getIntent().getIntExtra("Paginas", 0);
-        thumb = getIntent().getStringExtra("Capa");
-        preLink = getIntent().getStringExtra("Pre Visualizar");
-        infoLink = getIntent().getStringExtra("Informacoes");
-        compraLink = getIntent().getStringExtra("Comprar");
+        titulo = getIntent().getStringExtra("title");
+        sub = getIntent().getStringExtra("subtitle");
+        distrib = getIntent().getStringExtra("publisher");
+        dataDist = getIntent().getStringExtra("publishedDate");
+        descricao = getIntent().getStringExtra("description");
+        qntPages = getIntent().getIntExtra("pageCount", 0);
+        thumb = getIntent().getStringExtra("thumbnail");
+        preLink = getIntent().getStringExtra("previewLink");
+        infoLink = getIntent().getStringExtra("infoLink");
+        compraLink = getIntent().getStringExtra("buyLink");
 
         tituloLivro.setText(titulo);
         subLivro.setText(sub);
