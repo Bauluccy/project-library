@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         int paginas = volumeObj.optInt("pageCount");
                         JSONObject imageLinks = volumeObj.optJSONObject("imageLinks");
 //                        String thumb = imageLinks.optString("thumbnail");
+//                        Log.d("imagem", thumb);
                         String linkPre = volumeObj.optString("previewLink");
                         String linkInfo = volumeObj.optString("infoLink");
                         JSONObject saleInfoObj = itemsObj.optJSONObject("saleInfo");
