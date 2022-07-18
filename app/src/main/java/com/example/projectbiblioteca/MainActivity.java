@@ -1,5 +1,6 @@
 package com.example.projectbiblioteca;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private EditText editPesquisa;
     private ImageButton botaoSearch;
+    private boolean isLoading = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void informacoes(String URL){
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
 //                progressBar.setVisibility(View.GONE);
-
+                isLoading = true;
                 try {
                     JSONArray itemsArray = response.getJSONArray("items");
                     for (int i = 0; i < itemsArray.length(); i++) {
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 //                        }
                         Livros livros = new Livros(titulo, sub, listaAutores, distribuidora, dataPub, descricao, paginas, thumb, linkPre, linkInfo, linkCompra);
                         listaLivros.add(livros);
+                        isLoading = false;
 
                         AdapterLivros adapter = new AdapterLivros(listaLivros, MainActivity.this);
 
@@ -103,6 +108,24 @@ public class MainActivity extends AppCompatActivity {
 
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(adapter);
+
+                        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                            @Override
+                            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                                super.onScrolled(recyclerView, dx, dy);
+
+                                int visibleItemCount = linearLayoutManager.getChildCount();
+                                int pasteVisibleItem = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                                int total = adapter.getItemCount();
+
+                                if(!isLoading){
+                                    if(visibleItemCount + pasteVisibleItem >= total){
+                                        informacoes(editPesquisa.getText().toString());
+                                    }
+                                }
+                            }
+                        });
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

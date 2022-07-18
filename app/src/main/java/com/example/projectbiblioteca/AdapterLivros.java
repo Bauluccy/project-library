@@ -2,6 +2,7 @@ package com.example.projectbiblioteca;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class AdapterLivros extends RecyclerView.Adapter<AdapterLivros.ViewHolder
         Livros livros = listaLivros.get(posicao);
         holder.titulo.setText(livros.getTitulo());
         holder.distribuidora.setText(livros.getDistribuidora());
-        holder.qntPag.setText("Sem páginas : " + livros.getQntPages());
+        holder.qntPag.setText("Páginas : " + livros.getQntPages());
         holder.data.setText(livros.getDataDistrib());
 
         Picasso.get().load(livros.getThumb()).into(holder.imagem);
