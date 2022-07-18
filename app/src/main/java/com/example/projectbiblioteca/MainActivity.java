@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(MainActivity.this);
         requestQueue.getCache().clear();
 
-        String url = "https://www.googleapis.com/books/v1/volumes?q=" + URL;
+        String url = "https://www.googleapis.com/books/v1/volumes?q=" + URL + "&startIndex=0&maxResults=40";
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         String descricao = volumeObj.optString("description");
                         int paginas = volumeObj.optInt("pageCount");
                         JSONObject imageLinks = volumeObj.optJSONObject("imageLinks");
-                        String thumb = imageLinks.optString("thumbnail");
+//                        String thumb = imageLinks.optString("thumbnail");
                         String linkPre = volumeObj.optString("previewLink");
                         String linkInfo = volumeObj.optString("infoLink");
                         JSONObject saleInfoObj = itemsObj.optJSONObject("saleInfo");
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 //                                listaAutores.add(authorsArray.optString(i));
 //                            }
 //                        }
-                        Livros livros = new Livros(titulo, sub, listaAutores, distribuidora, dataPub, descricao, paginas, thumb, linkPre, linkInfo, linkCompra);
+                        Livros livros = new Livros(titulo, sub, listaAutores, distribuidora, dataPub, descricao, paginas, linkPre, linkInfo, linkCompra);
                         listaLivros.add(livros);
                         isLoading = false;
 
@@ -109,22 +109,22 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(adapter);
 
-                        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                            @Override
-                            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                                super.onScrolled(recyclerView, dx, dy);
-
-                                int visibleItemCount = linearLayoutManager.getChildCount();
-                                int pasteVisibleItem = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                                int total = adapter.getItemCount();
-
-                                if(!isLoading){
-                                    if(visibleItemCount + pasteVisibleItem >= total){
-                                        informacoes(editPesquisa.getText().toString());
-                                    }
-                                }
-                            }
-                        });
+//                        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//                            @Override
+//                            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+//                                super.onScrolled(recyclerView, dx, dy);
+//
+//                                int visibleItemCount = linearLayoutManager.getChildCount();
+//                                int pasteVisibleItem = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+//                                int total = adapter.getItemCount();
+//
+//                                if(!isLoading){
+//                                    if(visibleItemCount + pasteVisibleItem >= total){
+//                                        informacoes(editPesquisa.getText().toString());
+//                                    }
+//                                }
+//                            }
+//                        });
 
                     }
                 } catch (JSONException e) {

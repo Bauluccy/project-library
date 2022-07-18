@@ -29,6 +29,19 @@ public class Livros {
         this.linkCompra = linkCompra;
     }
 
+    public Livros(String titulo, String sub, ArrayList<String> autores, String distribuidora, String dataDistrib, String descricao, int qntPages, String linkPre, String infoLink, String linkCompra) {
+        this.titulo = titulo;
+        this.sub = sub;
+        this.autores = autores;
+        this.distribuidora = distribuidora;
+        this.dataDistrib = dataDistrib;
+        this.descricao = descricao;
+        this.qntPages = qntPages;
+        this.linkPre = linkPre;
+        this.infoLink = infoLink;
+        this.linkCompra = linkCompra;
+    }
+
     public String getTitulo() {
         return titulo;
     }

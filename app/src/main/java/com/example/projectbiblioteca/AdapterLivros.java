@@ -43,7 +43,7 @@ public class AdapterLivros extends RecyclerView.Adapter<AdapterLivros.ViewHolder
         holder.qntPag.setText("Páginas : " + livros.getQntPages());
         holder.data.setText(livros.getDataDistrib());
 
-        Picasso.get().load(livros.getThumb()).into(holder.imagem);
+//        Picasso.get().load(livros.getThumb()).error(R.drawable.image_error).placeholder(R.drawable.placeholder_image).into(holder.imagem);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

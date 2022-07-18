@@ -65,9 +65,9 @@ public class Detalhes extends AppCompatActivity {
         tituloLivro.setText(titulo);
         subLivro.setText(sub);
         distribuidoraLivro.setText(distrib);
-        dataPubLivro.setText("Published On : " + dataDist);
+        dataPubLivro.setText("Publicado em: " + dataDist);
         descricaoLivro.setText(descricao);
-        qntPagesLivro.setText("No Of Pages : " + qntPages);
+        qntPagesLivro.setText("Páginas: " + qntPages);
         Picasso.get().load(thumb).into(imgLivro);
 
         preButton.setOnClickListener(new View.OnClickListener() {

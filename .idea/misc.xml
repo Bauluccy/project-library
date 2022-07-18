@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/fifol/Documents/ProjectBiblioteca/app/src/main/res/drawable/image_error.xml" value="0.26" />
+        <entry key="..\:/Users/fifol/Documents/ProjectBiblioteca/app/src/main/res/drawable/placeholder_image.xml" value="0.26" />
         <entry key="..\:/Users/fifol/Documents/ProjectBiblioteca/app/src/main/res/layout/activity_detalhes.xml" value="0.33" />
         <entry key="..\:/Users/fifol/Documents/ProjectBiblioteca/app/src/main/res/layout/activity_livro_item.xml" value="0.33" />
         <entry key="..\:/Users/fifol/Documents/ProjectBiblioteca/app/src/main/res/layout/activity_main.xml" value="0.25" />
